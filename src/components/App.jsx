@@ -1,12 +1,14 @@
+import { AutoList } from './AutoList';
+
 export const App = () => {
   return (
     <div
       style={{
-        height: '100vh',
-        display: 'flex',
+        paddingLeft: 128,
+        paddingRight: 128,
       }}
     >
-      React homework template
+      <AutoList></AutoList>
     </div>
   );
 };
