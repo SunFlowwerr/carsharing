@@ -3,7 +3,7 @@ import { fetchCars } from 'redux/operations';
 import useLocalStorage from 'hooks/useLocalStorage';
 import { nanoid } from 'nanoid';
 import css from './AutoList.module.css';
-import { Modal } from '../Modal';
+import { Modal } from '../Modal/Modal';
 
 export const AutoList = () => {
   const { dispatch, cars } = useLocalStorage();
