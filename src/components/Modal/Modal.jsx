@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import css from './Modal.module.css';
-import { RxCross1 } from 'react-icons/rx';
+// import { RxCross1 } from 'react-icons/rx';
 
 export const Modal = ({ car, onClose }) => {
   let rentalConditions = car.rentalConditions.split('\n');
@@ -50,9 +50,7 @@ export const Modal = ({ car, onClose }) => {
             right: 8,
             top: 8,
           }}
-        >
-          <RxCross1 style={{ width: 24, height: 24 }}></RxCross1>
-        </button>
+        ></button>
         <div
           style={{
             backgroundImage: `url(${car.img})`,
