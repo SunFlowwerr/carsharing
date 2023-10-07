@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
-import css from './Modal.module.css';
-// import { RxCross1 } from 'react-icons/rx';
+import { RxCross1 } from 'react-icons/rx';
 
 export const Modal = ({ car, onClose }) => {
   let rentalConditions = car.rentalConditions.split('\n');
@@ -40,7 +39,19 @@ export const Modal = ({ car, onClose }) => {
       }}
       onClick={handleBackdropClick}
     >
-      <div className={css.modal}>
+      <div
+        style={{
+          position: 'relative',
+          backgroundColor: 'white',
+          width: 541,
+          height: 752,
+          borderRadius: 24,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          padding: 40,
+        }}
+      >
         <button
           onClick={() => onClose()}
           style={{
@@ -50,7 +61,9 @@ export const Modal = ({ car, onClose }) => {
             right: 8,
             top: 8,
           }}
-        ></button>
+        >
+          <RxCross1 width={24} height={24}></RxCross1>
+        </button>
         <div
           style={{
             backgroundImage: `url(${car.img})`,
@@ -62,11 +75,12 @@ export const Modal = ({ car, onClose }) => {
             borderRadius: 14,
           }}
         ></div>
-        <div className={css.infoContainer}>
-          <h1 className={css.title}>
-            {car.make} <span className={css.span}>{car.model}</span>, {car.year}
+        <div style={{ marginTop: 14 }}>
+          <h1 style={{ margin: 0, fontSize: 18 }}>
+            {car.make} <span style={{ color: '#3470ff' }}>{car.model}</span>,{' '}
+            {car.year}
           </h1>
-          <div className={css.text}>
+          <div style={{ marginTop: 8, fontSize: 12, color: '#8a8a89' }}>
             <p style={{ margin: 0 }}>
               {car.address.split(',').slice(1, 2)} |{' '}
               {car.address.split(',').slice(2, 3)} | Id: {car.id} | Type:
@@ -77,51 +91,105 @@ export const Modal = ({ car, onClose }) => {
               {car.engineSize}
             </p>
           </div>
-          <p className={css.description}>{car.description}</p>
-          <div className={css.functions}>
-            <h2 className={css.description}>
+          <p style={{ fontSize: 14, marginTop: 8, marginBottom: 8 }}>
+            {car.description}
+          </p>
+          <div style={{ marginTop: 24 }}>
+            <h2 style={{ fontSize: 14, marginTop: 8, marginBottom: 8 }}>
               Accessories and functionalities:
             </h2>
-            {/* <p>
-              {car.accessories.map(item => (
-                <span key={item} className={css.accessoriesAndFunctionalities}>
-                  {item} |
-                </span>
-              ))}
-            </p> */}
-            <p className={css.accessoriesAndFunctionalities}>
+            <p style={{ margin: 0, fontSize: 12, color: '#8a8a89' }}>
               {car.accessories.slice(0, 1)} | {car.accessories.slice(1, 2)} |{' '}
               {car.accessories.slice(2, 3)}
             </p>
             <p
-              className={css.accessoriesAndFunctionalities}
-              style={{ marginTop: 4 }}
+              style={{
+                margin: 0,
+                fontSize: 12,
+                color: '#8a8a89',
+                marginTop: 4,
+              }}
             >
               {car.functionalities.slice(0, 1)} |{' '}
               {car.functionalities.slice(1, 2)} |{' '}
               {car.functionalities.slice(2, 3)}
             </p>
           </div>
-          <div className={css.rentalContainer}>
-            <h2 className={css.description}>Rental Conditions:</h2>
-            <ul className={css.rentalConditions}>
+          <div style={{ marginTop: 24 }}>
+            <h2 style={{ fontSize: 14, marginTop: 8, marginBottom: 8 }}>
+              Rental Conditions:
+            </h2>
+            <ul
+              style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                listStyle: 'none',
+                padding: 0,
+                gap: 8,
+              }}
+            >
               {rentalConditions.map(item => (
-                <li key={item} className={css.rentalItem}>
+                <li
+                  key={item}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    padding: '7px 14px',
+                    borderRadius: 35,
+                    height: 32,
+                    backgroundColor: '#f9f9f9',
+                    fontSize: 12,
+                  }}
+                >
                   {item}
                 </li>
               ))}
-              <li className={css.rentalItem}>
+              <li
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  padding: '7px 14px',
+                  borderRadius: 35,
+                  height: 32,
+                  backgroundColor: '#f9f9f9',
+                  fontSize: 12,
+                }}
+              >
                 Mileage:{' '}
                 <span style={{ color: '#3470FF' }}> {car.mileage}</span>
               </li>
-              <li className={css.rentalItem}>
+              <li
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  padding: '7px 14px',
+                  borderRadius: 35,
+                  height: 32,
+                  backgroundColor: '#f9f9f9',
+                  fontSize: 12,
+                }}
+              >
                 Price:{' '}
                 <span style={{ color: '#3470FF' }}>{car.rentalPrice}</span>
               </li>
             </ul>
           </div>
         </div>
-        <button className={css.button}>Rental car</button>
+        <button
+          style={{
+            width: 168,
+            height: 44,
+            backgroundColor: '#3470ff',
+            border: '1px solid #3470ff',
+            borderRadius: 12,
+            color: 'white',
+          }}
+        >
+          Rental car
+        </button>
       </div>
     </div>
   );
