@@ -7,7 +7,6 @@ const carsSlice = createSlice({
     entities: [],
     status: null,
     error: null,
-    favourite: false,
   },
   extraReducers: {
     [fetchCars.pending]: state => {
