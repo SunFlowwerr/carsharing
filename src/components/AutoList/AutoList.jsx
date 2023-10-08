@@ -3,10 +3,13 @@ import { useState, useEffect } from 'react';
 import useLocalStorage from 'hooks/useLocalStorage';
 import { fetchCars } from 'redux/operations';
 import { nanoid } from 'nanoid';
+import { Modal } from '../Modal';
 
 export const AutoList = () => {
   const { dispatch, cars } = useLocalStorage();
   const [counter, setCounter] = useState(8);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentCar, setCurrentCar] = useState(null);
 
   useEffect(() => {
     dispatch(fetchCars());
@@ -17,6 +20,12 @@ export const AutoList = () => {
   };
 
   const arrayOfCars = cars.slice(0, counter);
+
+  const toggleModal = car => {
+    setIsModalOpen(prevState => !prevState);
+
+    setCurrentCar(car);
+  };
 
   return (
     <div className={css.page}>
@@ -54,6 +63,12 @@ export const AutoList = () => {
                   </p>
                 </div>
               </div>
+              <button
+                onClick={() => toggleModal(car)}
+                className={css.learnMoreBtn}
+              >
+                Learn more
+              </button>
             </li>
           ))
         ) : (
@@ -63,6 +78,7 @@ export const AutoList = () => {
       <button onClick={() => handleLoader()} className={css.loadMoreBtn}>
         Load more
       </button>
+      {isModalOpen && <Modal onClose={toggleModal} car={currentCar}></Modal>}
     </div>
   );
 };

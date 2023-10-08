@@ -1,4 +1,4 @@
-import { CatalogPage } from './Pages/CatalogPage/CatalogPage';
+import { AutoList } from './AutoList';
 
 export const App = () => {
   return (
@@ -8,7 +8,7 @@ export const App = () => {
         paddingRight: 128,
       }}
     >
-      <CatalogPage></CatalogPage>
+      <AutoList></AutoList>
     </div>
   );
 };
