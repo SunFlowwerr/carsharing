@@ -1,3 +1,5 @@
+import { CatalogPage } from './Pages/CatalogPage/CatalogPage';
+
 export const App = () => {
   return (
     <div
@@ -5,6 +7,8 @@ export const App = () => {
         paddingLeft: 128,
         paddingRight: 128,
       }}
-    ></div>
+    >
+      <CatalogPage></CatalogPage>
+    </div>
   );
 };
