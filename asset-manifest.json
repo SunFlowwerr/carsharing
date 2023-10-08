@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/carsharing/static/css/main.7acaea2f.css",
-    "main.js": "/carsharing/static/js/main.9be53a76.js",
+    "main.css": "/carsharing/static/css/main.2d74985d.css",
+    "main.js": "/carsharing/static/js/main.0c71fb49.js",
     "index.html": "/carsharing/index.html",
-    "main.7acaea2f.css.map": "/carsharing/static/css/main.7acaea2f.css.map",
-    "main.9be53a76.js.map": "/carsharing/static/js/main.9be53a76.js.map"
+    "main.2d74985d.css.map": "/carsharing/static/css/main.2d74985d.css.map",
+    "main.0c71fb49.js.map": "/carsharing/static/js/main.0c71fb49.js.map"
   },
   "entrypoints": [
-    "static/css/main.7acaea2f.css",
-    "static/js/main.9be53a76.js"
+    "static/css/main.2d74985d.css",
+    "static/js/main.0c71fb49.js"
   ]
 }
