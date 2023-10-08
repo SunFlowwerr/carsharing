@@ -1,3 +1,5 @@
+import { AutoList } from './AutoList';
+
 export const App = () => {
   return (
     <div
@@ -5,6 +7,8 @@ export const App = () => {
         paddingLeft: 128,
         paddingRight: 128,
       }}
-    ></div>
+    >
+      <AutoList></AutoList>
+    </div>
   );
 };
