@@ -3,7 +3,6 @@ import { fetchCars } from 'redux/operations';
 import useLocalStorage from 'hooks/useLocalStorage';
 import { nanoid } from 'nanoid';
 import css from './AutoList.module.css';
-// import { Modal } from '../Modal/Modal';
 
 export const AutoList = () => {
   const { dispatch, cars } = useLocalStorage();
@@ -78,7 +77,6 @@ export const AutoList = () => {
       <button onClick={() => handleLoader()} className={css.loadMoreBtn}>
         Load more
       </button>
-      {/* {isModalOpen && <Modal onClose={toggleModal} car={currentCar}></Modal>} */}
     </div>
   );
 };
