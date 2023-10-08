@@ -7,8 +7,8 @@ import css from './AutoList.module.css';
 export const AutoList = () => {
   const { dispatch, cars } = useLocalStorage();
   const [counter, setCounter] = useState(8);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [currentCar, setCurrentCar] = useState(null);
+  //   const [isModalOpen, setIsModalOpen] = useState(false);
+  //   const [currentCar, setCurrentCar] = useState(null);
 
   useEffect(() => {
     dispatch(fetchCars());
@@ -20,11 +20,11 @@ export const AutoList = () => {
 
   const arrayOfCars = cars.slice(0, counter);
 
-  const toggleModal = car => {
-    setIsModalOpen(prevState => !prevState);
+  //   const toggleModal = car => {
+  //     setIsModalOpen(prevState => !prevState);
 
-    setCurrentCar(car);
-  };
+  //     setCurrentCar(car);
+  //   };
 
   return (
     <div className={css.page}>
@@ -62,12 +62,12 @@ export const AutoList = () => {
                   </p>
                 </div>
               </div>
-              <button
+              {/* <button
                 onClick={() => toggleModal(car)}
                 className={css.learnMoreBtn}
               >
                 Learn more
-              </button>
+              </button> */}
             </li>
           ))
         ) : (
