@@ -1,4 +1,4 @@
-import { AutoList } from './AutoList/AutoList';
+import { AutoList } from './AutoList';
 
 export const App = () => {
   return (
