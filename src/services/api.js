@@ -1,7 +1,6 @@
-const BASE_URL =
-  'https://api.mockfly.dev/mocks/bcc4fc96-d541-4147-a07b-eae2b895bc19';
+const BASE_URL = 'https://64a818fbdca581464b85495b.mockapi.io/';
 
 export async function fetchCars() {
-  const response = await fetch(`${BASE_URL}/catalog`);
+  const response = await fetch(`${BASE_URL}/adverts`);
   return await response.json();
 }
