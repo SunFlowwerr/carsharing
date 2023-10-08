@@ -4,6 +4,7 @@ import { RxCross1 } from 'react-icons/rx';
 
 export const Modal = ({ car, onClose }) => {
   let rentalConditions = car.rentalConditions.split('\n');
+
   useEffect(() => {
     const handleKeyDown = e => {
       if (e.code === 'Escape') {
@@ -22,6 +23,12 @@ export const Modal = ({ car, onClose }) => {
     if (e.currentTarget === e.target) {
       onClose();
     }
+  };
+
+  const phoneNumber = '+380730000000';
+
+  const handleCallCompany = () => {
+    window.location.href = `tel:${phoneNumber}`;
   };
 
   return (
@@ -113,17 +120,28 @@ export const Modal = ({ car, onClose }) => {
                 </li>
               ))}
               <li className={css.rentalItem}>
-                Mileage:{' '}
-                <span style={{ color: '#3470FF' }}> {car.mileage}</span>
+                Mileage:
+                <span style={{ color: '#3470FF', marginLeft: 4 }}>
+                  {car.mileage}
+                </span>
               </li>
               <li className={css.rentalItem}>
-                Price:{' '}
-                <span style={{ color: '#3470FF' }}>{car.rentalPrice}</span>
+                Price:
+                <span style={{ color: '#3470FF', marginLeft: 4 }}>
+                  {car.rentalPrice}
+                </span>
               </li>
             </ul>
           </div>
         </div>
-        <button className={css.button}>Rental car</button>
+        <a
+          href={`tel:${phoneNumber}`}
+          onClick={handleCallCompany}
+          className={css.button}
+        >
+          Rental car
+        </a>
+        {/* <button className={css.button}>Rental car</button> */}
       </div>
     </div>
   );

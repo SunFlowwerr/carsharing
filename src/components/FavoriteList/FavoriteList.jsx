@@ -1,33 +1,20 @@
-import css from './AutoList.module.css';
 import { useState, useEffect } from 'react';
 import useLocalStorage from 'hooks/useLocalStorage';
 import { fetchCars, updateFavoriteStatus } from 'redux/operations';
 import { nanoid } from 'nanoid';
 import { Modal } from '../Modal';
+import css from './FavoriteList.module.css';
 import { FaRegHeart } from 'react-icons/fa';
 import { FaHeart } from 'react-icons/fa';
 
-export const AutoList = () => {
+export const FavoriteList = () => {
   const { dispatch, cars } = useLocalStorage();
-  const [counter, setCounter] = useState(8);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentCar, setCurrentCar] = useState(null);
 
   useEffect(() => {
     dispatch(fetchCars());
   }, [dispatch]);
-
-  const handleLoader = () => {
-    setCounter(prevState => prevState + 8);
-  };
-
-  const arrayOfCars = cars.slice(0, counter);
-
-  const toggleModal = car => {
-    setIsModalOpen(prevState => !prevState);
-
-    setCurrentCar(car);
-  };
 
   const handleToggleFavorite = car => {
     const newFavoriteStatus = !car.favorite;
@@ -36,11 +23,24 @@ export const AutoList = () => {
     );
   };
 
+  const toggleModal = car => {
+    setIsModalOpen(prevState => !prevState);
+
+    setCurrentCar(car);
+  };
+
+  const favoriteCars = cars.reduce((acc, car) => {
+    if (car.favorite) {
+      acc.push(car);
+    }
+    return acc;
+  }, []);
+
   return (
     <div className={css.page}>
       <ul className={css.listOfCars}>
-        {arrayOfCars ? (
-          arrayOfCars.map(car => (
+        {favoriteCars ? (
+          favoriteCars.map(car => (
             <li key={nanoid()} className={css.car}>
               <div
                 className={css.imgContainer}
@@ -100,9 +100,6 @@ export const AutoList = () => {
           <p>Loading</p>
         )}
       </ul>
-      <button onClick={() => handleLoader()} className={css.loadMoreBtn}>
-        Load more
-      </button>
       {isModalOpen && <Modal onClose={toggleModal} car={currentCar}></Modal>}
     </div>
   );

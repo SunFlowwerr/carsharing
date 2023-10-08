@@ -12,3 +12,15 @@ export const fetchCars = createAsyncThunk(
     }
   }
 );
+
+export const updateFavoriteStatus = createAsyncThunk(
+  'cars/updateFavoriteStatus',
+  async ({ carId, favorite }, { rejectWithValue }) => {
+    try {
+      await api.updateCarFavoriteStatus(carId, favorite);
+      return { carId, favorite };
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);

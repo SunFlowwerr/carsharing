@@ -2,7 +2,7 @@
   position: relative;
   background-color: white;
   width: 541px;
-  height: 752px;
+  height: 680px;
   border-radius: 24px;
   display: flex;
   flex-direction: column;
@@ -69,10 +69,14 @@
 }
 
 .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 168px;
   height: 44px;
   background-color: #3470ff;
   border: 1px solid #3470ff;
   border-radius: 12px;
   color: white;
+  text-decoration: none;
 }

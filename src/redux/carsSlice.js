@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchCars } from './operations';
+import { fetchCars, updateFavoriteStatus } from './operations';
 
 const carsSlice = createSlice({
   name: 'cars',
@@ -20,6 +20,15 @@ const carsSlice = createSlice({
     [fetchCars.rejected]: (state, { payload }) => {
       state.status = 'rejected';
       state.error = payload;
+    },
+    [updateFavoriteStatus.fulfilled]: (state, action) => {
+      const { carId, favorite } = action.payload;
+
+      const updatedEntities = state.entities.map(car =>
+        car.id === carId ? { ...car, favorite } : car
+      );
+
+      state.entities = updatedEntities;
     },
   },
 });
