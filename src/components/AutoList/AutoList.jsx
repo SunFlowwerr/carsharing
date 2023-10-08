@@ -7,8 +7,6 @@ import { nanoid } from 'nanoid';
 export const AutoList = () => {
   const { dispatch, cars } = useLocalStorage();
   const [counter, setCounter] = useState(8);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [currentCar, setCurrentCar] = useState(null);
 
   useEffect(() => {
     dispatch(fetchCars());
@@ -19,12 +17,6 @@ export const AutoList = () => {
   };
 
   const arrayOfCars = cars.slice(0, counter);
-
-  const toggleModal = car => {
-    setIsModalOpen(prevState => !prevState);
-
-    setCurrentCar(car);
-  };
 
   return (
     <div className={css.page}>
@@ -62,12 +54,6 @@ export const AutoList = () => {
                   </p>
                 </div>
               </div>
-              <button
-                onClick={() => toggleModal(car)}
-                className={css.learnMoreBtn}
-              >
-                Learn more
-              </button>
             </li>
           ))
         ) : (
