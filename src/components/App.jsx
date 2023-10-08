@@ -7,6 +7,8 @@ export const App = () => {
         paddingLeft: 128,
         paddingRight: 128,
       }}
-    ></div>
+    >
+      <AutoList></AutoList>
+    </div>
   );
 };
