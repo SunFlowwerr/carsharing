@@ -97,7 +97,7 @@ export const FavoriteList = () => {
             </li>
           ))
         ) : (
-          <p>Loading</p>
+          <h1 className={css.noFavTitle}>Ooops, no favorites yet.</h1>
         )}
       </ul>
       {isModalOpen && <Modal onClose={toggleModal} car={currentCar}></Modal>}
